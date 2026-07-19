@@ -1,0 +1,218 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Design system — "静謐と華" (Serene Opulence)
+ * Warm, calm, luxurious. Deep espresso background, gold leaf accents,
+ * warm cream typography. Japanese-first elegant serif display.
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-gold: var(--gold);
+  --color-gold-soft: var(--gold-soft);
+  --color-rose: var(--rose);
+
+  --font-display: "Shippori Mincho", "Cormorant Garamond", serif;
+  --font-serif: "Cormorant Garamond", "Shippori Mincho", serif;
+  --font-sans: "Noto Sans JP", ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  --radius: 0.5rem;
+
+  --background: oklch(0.17 0.016 58);
+  --foreground: oklch(0.93 0.018 82);
+
+  --card: oklch(0.21 0.019 60);
+  --card-foreground: oklch(0.93 0.018 82);
+
+  --popover: oklch(0.21 0.019 60);
+  --popover-foreground: oklch(0.93 0.018 82);
+
+  --primary: oklch(0.8 0.12 82);
+  --primary-foreground: oklch(0.2 0.02 60);
+
+  --secondary: oklch(0.26 0.02 62);
+  --secondary-foreground: oklch(0.93 0.018 82);
+
+  --muted: oklch(0.24 0.018 60);
+  --muted-foreground: oklch(0.72 0.025 78);
+
+  --accent: oklch(0.3 0.03 62);
+  --accent-foreground: oklch(0.95 0.02 84);
+
+  --destructive: oklch(0.6 0.2 25);
+  --destructive-foreground: oklch(0.98 0.01 84);
+
+  --border: oklch(0.34 0.02 64 / 55%);
+  --input: oklch(0.34 0.02 64 / 60%);
+  --ring: oklch(0.8 0.12 82);
+
+  --gold: oklch(0.82 0.13 84);
+  --gold-soft: oklch(0.88 0.08 86);
+  --rose: oklch(0.78 0.09 40);
+
+  --gradient-gold: linear-gradient(135deg, oklch(0.9 0.09 88), oklch(0.76 0.14 78));
+  --gradient-warm: radial-gradient(
+    120% 120% at 50% 0%,
+    oklch(0.24 0.03 62) 0%,
+    oklch(0.17 0.016 58) 55%
+  );
+  --shadow-elegant: 0 30px 60px -25px oklch(0.05 0.02 60 / 70%);
+  --shadow-gold: 0 20px 50px -20px oklch(0.8 0.12 82 / 35%);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    font-feature-settings: "palt";
+  }
+
+  ::selection {
+    background: oklch(0.8 0.12 82 / 30%);
+    color: var(--color-foreground);
+  }
+}
+
+@utility font-display {
+  font-family: var(--font-display);
+}
+@utility font-serif-lux {
+  font-family: var(--font-serif);
+}
+
+@utility text-gradient-gold {
+  background: var(--gradient-gold);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+@utility bg-gradient-warm {
+  background: var(--gradient-warm);
+}
+
+/* Near-black tech backdrop for the hero */
+@utility bg-hero-dark {
+  background:
+    radial-gradient(
+      130% 120% at 78% 42%,
+      oklch(0.19 0.02 62) 0%,
+      oklch(0.13 0.012 58) 48%,
+      oklch(0.1 0.01 56) 100%
+    );
+}
+
+/* Faint horizontal scan-line grid */
+@utility bg-hero-grid {
+  background-image: repeating-linear-gradient(
+    0deg,
+    oklch(0.9 0.02 84 / 4%) 0px,
+    oklch(0.9 0.02 84 / 4%) 1px,
+    transparent 1px,
+    transparent 42px
+  );
+  -webkit-mask-image: radial-gradient(120% 90% at 60% 45%, #000 40%, transparent 85%);
+  mask-image: radial-gradient(120% 90% at 60% 45%, #000 40%, transparent 85%);
+}
+
+@utility shadow-elegant {
+  box-shadow: var(--shadow-elegant);
+}
+@utility shadow-gold {
+  box-shadow: var(--shadow-gold);
+}
+
+/* Thin gold rule */
+@utility rule-gold {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    oklch(0.82 0.13 84 / 70%),
+    transparent
+  );
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+@utility animate-float-slow {
+  animation: float-slow 7s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* Premium modal scrollbar */
+.scrollbar-modal {
+  scrollbar-width: thin;
+  scrollbar-color: oklch(0.8 0.12 82 / 40%) transparent;
+}
+.scrollbar-modal::-webkit-scrollbar {
+  width: 5px;
+}
+.scrollbar-modal::-webkit-scrollbar-track {
+  background: transparent;
+}
+.scrollbar-modal::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    to bottom,
+    oklch(0.8 0.12 82 / 20%),
+    oklch(0.8 0.12 82 / 60%),
+    oklch(0.8 0.12 82 / 20%)
+  );
+  border-radius: 9999px;
+}
+.scrollbar-modal::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(
+    to bottom,
+    oklch(0.8 0.12 82 / 40%),
+    oklch(0.8 0.12 82 / 90%),
+    oklch(0.8 0.12 82 / 40%)
+  );
+}
