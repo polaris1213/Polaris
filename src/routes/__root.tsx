@@ -95,8 +95,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "太田 魁人 | フルスタックエンジニア ポートフォリオ" },
       { name: "twitter:description", content: "8年の開発経験を持つフルスタックエンジニア 太田魁人のポートフォリオ。Web・SaaS・AI活用プロジェクトの実績を紹介します。" },
-      { property: "og:image", content: "https://agent-6a5c76c2633e4527113--funny-capybara-ac482d.netlify.app/og-image.png" },
-      { name: "twitter:image", content: "https://agent-6a5c76c2633e4527113--funny-capybara-ac482d.netlify.app/og-image.png" },
+      { property: "og:image", content: "https://funny-capybara-ac482d.netlify.app/og-image.png" },
+      { name: "twitter:image", content: "https://funny-capybara-ac482d.netlify.app/og-image.png" },
     ],
     links: [
       {
